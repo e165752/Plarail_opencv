@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DE8451182179C619000E72C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8451172179C619000E72C8 /* AppDelegate.swift */; };
+		DE84511A2179C619000E72C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8451192179C619000E72C8 /* ViewController.swift */; };
+		DE84511D2179C619000E72C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE84511B2179C619000E72C8 /* Main.storyboard */; };
+		DE84511F2179C61A000E72C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE84511E2179C61A000E72C8 /* Assets.xcassets */; };
+		DE8451222179C61A000E72C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE8451202179C61A000E72C8 /* LaunchScreen.storyboard */; };
+		DE84512D2179C61A000E72C8 /* Plarail_opencvTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84512C2179C61A000E72C8 /* Plarail_opencvTests.swift */; };
+		DE8451382179C61B000E72C8 /* Plarail_opencvUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8451372179C61B000E72C8 /* Plarail_opencvUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DE8451292179C61A000E72C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE84510C2179C619000E72C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE8451132179C619000E72C8;
+			remoteInfo = Plarail_opencv;
+		};
+		DE8451342179C61B000E72C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE84510C2179C619000E72C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE8451132179C619000E72C8;
+			remoteInfo = Plarail_opencv;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DE8451142179C619000E72C8 /* Plarail_opencv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plarail_opencv.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE8451172179C619000E72C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DE8451192179C619000E72C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DE84511C2179C619000E72C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DE84511E2179C61A000E72C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DE8451212179C61A000E72C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DE8451232179C61A000E72C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE8451282179C61A000E72C8 /* Plarail_opencvTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Plarail_opencvTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE84512C2179C61A000E72C8 /* Plarail_opencvTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plarail_opencvTests.swift; sourceTree = "<group>"; };
+		DE84512E2179C61B000E72C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE8451332179C61B000E72C8 /* Plarail_opencvUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Plarail_opencvUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE8451372179C61B000E72C8 /* Plarail_opencvUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plarail_opencvUITests.swift; sourceTree = "<group>"; };
+		DE8451392179C61B000E72C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DE8451112179C619000E72C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE8451252179C61A000E72C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE8451302179C61B000E72C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DE84510B2179C619000E72C8 = {
+			isa = PBXGroup;
+			children = (
+				DE8451162179C619000E72C8 /* Plarail_opencv */,
+				DE84512B2179C61A000E72C8 /* Plarail_opencvTests */,
+				DE8451362179C61B000E72C8 /* Plarail_opencvUITests */,
+				DE8451152179C619000E72C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DE8451152179C619000E72C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE8451142179C619000E72C8 /* Plarail_opencv.app */,
+				DE8451282179C61A000E72C8 /* Plarail_opencvTests.xctest */,
+				DE8451332179C61B000E72C8 /* Plarail_opencvUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DE8451162179C619000E72C8 /* Plarail_opencv */ = {
+			isa = PBXGroup;
+			children = (
+				DE8451172179C619000E72C8 /* AppDelegate.swift */,
+				DE8451192179C619000E72C8 /* ViewController.swift */,
+				DE84511B2179C619000E72C8 /* Main.storyboard */,
+				DE84511E2179C61A000E72C8 /* Assets.xcassets */,
+				DE8451202179C61A000E72C8 /* LaunchScreen.storyboard */,
+				DE8451232179C61A000E72C8 /* Info.plist */,
+			);
+			path = Plarail_opencv;
+			sourceTree = "<group>";
+		};
+		DE84512B2179C61A000E72C8 /* Plarail_opencvTests */ = {
+			isa = PBXGroup;
+			children = (
+				DE84512C2179C61A000E72C8 /* Plarail_opencvTests.swift */,
+				DE84512E2179C61B000E72C8 /* Info.plist */,
+			);
+			path = Plarail_opencvTests;
+			sourceTree = "<group>";
+		};
+		DE8451362179C61B000E72C8 /* Plarail_opencvUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DE8451372179C61B000E72C8 /* Plarail_opencvUITests.swift */,
+				DE8451392179C61B000E72C8 /* Info.plist */,
+			);
+			path = Plarail_opencvUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DE8451132179C619000E72C8 /* Plarail_opencv */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE84513C2179C61B000E72C8 /* Build configuration list for PBXNativeTarget "Plarail_opencv" */;
+			buildPhases = (
+				DE8451102179C619000E72C8 /* Sources */,
+				DE8451112179C619000E72C8 /* Frameworks */,
+				DE8451122179C619000E72C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Plarail_opencv;
+			productName = Plarail_opencv;
+			productReference = DE8451142179C619000E72C8 /* Plarail_opencv.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DE8451272179C61A000E72C8 /* Plarail_opencvTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE84513F2179C61B000E72C8 /* Build configuration list for PBXNativeTarget "Plarail_opencvTests" */;
+			buildPhases = (
+				DE8451242179C61A000E72C8 /* Sources */,
+				DE8451252179C61A000E72C8 /* Frameworks */,
+				DE8451262179C61A000E72C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE84512A2179C61A000E72C8 /* PBXTargetDependency */,
+			);
+			name = Plarail_opencvTests;
+			productName = Plarail_opencvTests;
+			productReference = DE8451282179C61A000E72C8 /* Plarail_opencvTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DE8451322179C61B000E72C8 /* Plarail_opencvUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE8451422179C61B000E72C8 /* Build configuration list for PBXNativeTarget "Plarail_opencvUITests" */;
+			buildPhases = (
+				DE84512F2179C61B000E72C8 /* Sources */,
+				DE8451302179C61B000E72C8 /* Frameworks */,
+				DE8451312179C61B000E72C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE8451352179C61B000E72C8 /* PBXTargetDependency */,
+			);
+			name = Plarail_opencvUITests;
+			productName = Plarail_opencvUITests;
+			productReference = DE8451332179C61B000E72C8 /* Plarail_opencvUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DE84510C2179C619000E72C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "小嶺愛紀菜";
+				TargetAttributes = {
+					DE8451132179C619000E72C8 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					DE8451272179C61A000E72C8 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = DE8451132179C619000E72C8;
+					};
+					DE8451322179C61B000E72C8 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = DE8451132179C619000E72C8;
+					};
+				};
+			};
+			buildConfigurationList = DE84510F2179C619000E72C8 /* Build configuration list for PBXProject "Plarail_opencv" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DE84510B2179C619000E72C8;
+			productRefGroup = DE8451152179C619000E72C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DE8451132179C619000E72C8 /* Plarail_opencv */,
+				DE8451272179C61A000E72C8 /* Plarail_opencvTests */,
+				DE8451322179C61B000E72C8 /* Plarail_opencvUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DE8451122179C619000E72C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE8451222179C61A000E72C8 /* LaunchScreen.storyboard in Resources */,
+				DE84511F2179C61A000E72C8 /* Assets.xcassets in Resources */,
+				DE84511D2179C619000E72C8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE8451262179C61A000E72C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE8451312179C61B000E72C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DE8451102179C619000E72C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE84511A2179C619000E72C8 /* ViewController.swift in Sources */,
+				DE8451182179C619000E72C8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE8451242179C61A000E72C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE84512D2179C61A000E72C8 /* Plarail_opencvTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE84512F2179C61B000E72C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE8451382179C61B000E72C8 /* Plarail_opencvUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DE84512A2179C61A000E72C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE8451132179C619000E72C8 /* Plarail_opencv */;
+			targetProxy = DE8451292179C61A000E72C8 /* PBXContainerItemProxy */;
+		};
+		DE8451352179C61B000E72C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE8451132179C619000E72C8 /* Plarail_opencv */;
+			targetProxy = DE8451342179C61B000E72C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DE84511B2179C619000E72C8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE84511C2179C619000E72C8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DE8451202179C61A000E72C8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE8451212179C61A000E72C8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DE84513A2179C61B000E72C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DE84513B2179C61B000E72C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DE84513D2179C61B000E72C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9UJ28MWVGQ;
+				INFOPLIST_FILE = Plarail_opencv/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ie-ryukyu.Plarail-opencv";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DE84513E2179C61B000E72C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9UJ28MWVGQ;
+				INFOPLIST_FILE = Plarail_opencv/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ie-ryukyu.Plarail-opencv";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DE8451402179C61B000E72C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9UJ28MWVGQ;
+				INFOPLIST_FILE = Plarail_opencvTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ie-ryukyu.Plarail-opencvTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plarail_opencv.app/Plarail_opencv";
+			};
+			name = Debug;
+		};
+		DE8451412179C61B000E72C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9UJ28MWVGQ;
+				INFOPLIST_FILE = Plarail_opencvTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ie-ryukyu.Plarail-opencvTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plarail_opencv.app/Plarail_opencv";
+			};
+			name = Release;
+		};
+		DE8451432179C61B000E72C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9UJ28MWVGQ;
+				INFOPLIST_FILE = Plarail_opencvUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ie-ryukyu.Plarail-opencvUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Plarail_opencv;
+			};
+			name = Debug;
+		};
+		DE8451442179C61B000E72C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9UJ28MWVGQ;
+				INFOPLIST_FILE = Plarail_opencvUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ie-ryukyu.Plarail-opencvUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Plarail_opencv;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DE84510F2179C619000E72C8 /* Build configuration list for PBXProject "Plarail_opencv" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE84513A2179C61B000E72C8 /* Debug */,
+				DE84513B2179C61B000E72C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE84513C2179C61B000E72C8 /* Build configuration list for PBXNativeTarget "Plarail_opencv" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE84513D2179C61B000E72C8 /* Debug */,
+				DE84513E2179C61B000E72C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE84513F2179C61B000E72C8 /* Build configuration list for PBXNativeTarget "Plarail_opencvTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE8451402179C61B000E72C8 /* Debug */,
+				DE8451412179C61B000E72C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE8451422179C61B000E72C8 /* Build configuration list for PBXNativeTarget "Plarail_opencvUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE8451432179C61B000E72C8 /* Debug */,
+				DE8451442179C61B000E72C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DE84510C2179C619000E72C8 /* Project object */;
+}
