@@ -11,3 +11,9 @@
 
 
 #endif /* OpenCVManager_h */
+
+#import <UIKit/UIKit.h>
+
+@interface OpenCVManager : NSObject
++ (UIImage*)grayScale:(UIImage*)inImage;
+@end
