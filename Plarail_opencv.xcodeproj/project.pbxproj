@@ -15,7 +15,7 @@
 		DE84512D2179C61A000E72C8 /* Plarail_opencvTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84512C2179C61A000E72C8 /* Plarail_opencvTests.swift */; };
 		DE8451382179C61B000E72C8 /* Plarail_opencvUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8451372179C61B000E72C8 /* Plarail_opencvUITests.swift */; };
 		DE8451492179CDD5000E72C8 /* OpenCVManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = DE8451482179CDD5000E72C8 /* OpenCVManager.mm */; };
-		DE84514C217B4E8C000E72C8 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE84514B217B4E8C000E72C8 /* opencv2.framework */; };
+		DEBF180621884D90003A9730 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBF180521884D90003A9730 /* opencv2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 		DE8451472179CDD4000E72C8 /* Plarail_opencv-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Plarail_opencv-Bridging-Header.h"; sourceTree = "<group>"; };
 		DE8451482179CDD5000E72C8 /* OpenCVManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVManager.mm; sourceTree = "<group>"; };
 		DE84514A2179CECD000E72C8 /* OpenCVManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVManager.h; sourceTree = "<group>"; };
-		DE84514B217B4E8C000E72C8 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		DEBF180521884D90003A9730 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE84514C217B4E8C000E72C8 /* opencv2.framework in Frameworks */,
+				DEBF180621884D90003A9730 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +107,7 @@
 		DE8451162179C619000E72C8 /* Plarail_opencv */ = {
 			isa = PBXGroup;
 			children = (
-				DE84514B217B4E8C000E72C8 /* opencv2.framework */,
+				DEBF180521884D90003A9730 /* opencv2.framework */,
 				DE8451172179C619000E72C8 /* AppDelegate.swift */,
 				DE8451192179C619000E72C8 /* ViewController.swift */,
 				DE84511B2179C619000E72C8 /* Main.storyboard */,
