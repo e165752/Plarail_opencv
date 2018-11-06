@@ -29,16 +29,164 @@ extension UIImage {
 }
 
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var BeforeImage: UIImageView!
     
-    @IBOutlet weak var AfterImage: UIImageView!
+    
+    //@IBOutlet weak var BeforeImage: UIImageView!
+    
+    
+    @IBOutlet weak var label: UILabel!
+    
+    @IBOutlet weak var StartCamera: UIButton!
+    
+    @IBAction func StartCamera(_ sender: Any) {
+        
+        let sourceType:UIImagePickerController.SourceType =
+            UIImagePickerController.SourceType.camera
+        // カメラが利用可能かチェック
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerController.SourceType.camera){
+            // インスタンスの作成
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+            
+        }
+        else{
+            label.text = "error"
+            
+        }
+        
+    }
+    
+    //　撮影が完了時した時に呼ばれる
+    func imagePickerController(_ imagePicker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        
+        if let pickedImage = info[.originalImage]
+            as? UIImage {
+            
+            cameraView.contentMode = .scaleAspectFit
+            cameraView.image = pickedImage
+            
+        }
+        
+        //閉じる処理
+        imagePicker.dismiss(animated: true, completion: nil)
+        label.text = "Tap the [Save] to save a picture"
+        
+    }
+    
+    // 撮影がキャンセルされた時に呼ばれる
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+        label.text = "Canceled"
+
+    }
+    
+    @IBAction func FixPicture(_ sender: Any) {
+        
+        var image:UIImage! = cameraView.image
+        //var image = UIImage(named: "okt")!
+        
+        //この下の４行が勝手に画像の向きを変えるのを阻止してる
+        UIGraphicsBeginImageContextWithOptions(image.size, false, 0.0)
+        image.draw(in:(CGRect(x:0,y:0,width:image.size.width,height:image.size.height)))
+        image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        if image != nil {
+            
+            
+            var beforeImage:UIImage? = image
+            //let beforeImage:UIImage? = image
+            
+            UIGraphicsBeginImageContextWithOptions(beforeImage!.size, false, 0.0)
+            beforeImage!.draw(in:(CGRect(x:0,y:0,width:beforeImage!.size.width,height:beforeImage!.size.height)))
+            beforeImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            
+            let AfterImage:UIImage = OpenCVManager.grayScale(image);
+            
+        
+
+            cameraView.image = beforeImage?.mask(image: AfterImage)
+            
+            
+            
+        }
+        else {
+            label.text = "Fix Failed !"
+        }
+    }
+    
+    
+    
+    
+    @IBAction func SavePicture(_ sender: Any) {
+        
+        let image:UIImage! = cameraView.image
+        
+        if image != nil {
+            UIImageWriteToSavedPhotosAlbum(
+                image,
+                self,
+                #selector(ViewController.image(_:didFinishSavingWithError:contextInfo:)),
+                nil)
+        }
+        else{
+            label.text = "image Failed !"
+        }
+        
+    }
+    
+    // 書き込み完了結果の受け取り
+    @objc func image(_ image: UIImage,
+                     didFinishSavingWithError error: NSError!,
+                     contextInfo: UnsafeMutableRawPointer) {
+        
+        if error != nil {
+            print(error.code)
+            label.text = "Save Failed !"
+        }
+        else{
+            label.text = "Save Succeeded"
+        }
+    }
+    
+    
+    
+    @IBAction func ShowAlbum(_ sender: Any) {
+        
+        let sourceType:UIImagePickerController.SourceType =
+            UIImagePickerController.SourceType.photoLibrary
+        
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerController.SourceType.photoLibrary){
+            // インスタンスの作成
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+            
+            label.text = "Tap the [Start] to save a picture"
+        }
+        else{
+            label.text = "error"
+            
+        }
+        
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        label.text = "push Start"
+        /*
         BeforeImage.image = UIImage(named: "train")
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -47,7 +195,7 @@ class ViewController: UIViewController {
         AfterImage.image = gray;
         
         AfterImage.image = UIImage(named: "train")?.mask(image: AfterImage.image)
-        
+        */
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,5 +203,21 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var cameraView : UIImageView!
     
+    
+    
+    @IBAction func startCamera(_ sender : AnyObject) {
+        
+        
+        
+        
+    }
+    
+
 }
+
+
+
+
+

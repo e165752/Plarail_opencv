@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad10_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,32 +14,78 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Plarail_opencv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="myImageView" translatesAutoresizingMaskIntoConstraints="NO" id="SKn-Kp-IZd" userLabel="AfterImage">
-                                <rect key="frame" x="62" y="425" width="250" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="train" translatesAutoresizingMaskIntoConstraints="NO" id="d2x-bc-Pvv" userLabel="BeforeImage">
-                                <rect key="frame" x="62" y="126" width="250" height="150"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ly1-Ht-sKB">
+                                <rect key="frame" x="331" y="985" width="142" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="SSv-Dd-WeB"/>
+                                    <constraint firstAttribute="width" constant="142" id="xDO-Vw-JO7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NG-V2-saI">
+                                <rect key="frame" x="720" y="1033" width="44" height="30"/>
+                                <state key="normal" title="Album"/>
+                                <connections>
+                                    <action selector="ShowAlbum:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EEM-5h-N04"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaG-bx-7rN">
+                                <rect key="frame" x="243" y="1043" width="30" height="30"/>
+                                <state key="normal" title="Fix"/>
+                                <connections>
+                                    <action selector="FixPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AT4-hy-sgQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JV2-Gi-G9X">
+                                <rect key="frame" x="69" y="1043" width="34" height="30"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="StartCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aq0-Kv-zFm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5km-xf-SUW">
+                                <rect key="frame" x="499" y="1033" width="34" height="31"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="SavePicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LAG-H9-CoH"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GIr-Ja-FBN">
+                                <rect key="frame" x="0.0" y="20" width="834" height="957"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5km-xf-SUW" firstAttribute="top" secondItem="0NG-V2-saI" secondAttribute="top" id="1je-U9-Uu6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ly1-Ht-sKB" secondAttribute="bottom" constant="66" id="7L3-r9-E3t"/>
+                            <constraint firstItem="ly1-Ht-sKB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="331" id="DXw-7M-6MD"/>
+                            <constraint firstItem="5km-xf-SUW" firstAttribute="leading" secondItem="ly1-Ht-sKB" secondAttribute="trailing" constant="8" symbolic="YES" id="HFF-Tg-fov"/>
+                            <constraint firstItem="MaG-bx-7rN" firstAttribute="top" secondItem="5km-xf-SUW" secondAttribute="top" id="HXh-T5-eQS"/>
+                            <constraint firstItem="JV2-Gi-G9X" firstAttribute="centerY" secondItem="MaG-bx-7rN" secondAttribute="centerY" id="K6W-iz-xBE"/>
+                            <constraint firstItem="MaG-bx-7rN" firstAttribute="baseline" secondItem="5km-xf-SUW" secondAttribute="firstBaseline" id="S9U-9R-zD2"/>
+                            <constraint firstItem="ly1-Ht-sKB" firstAttribute="leading" secondItem="MaG-bx-7rN" secondAttribute="trailing" constant="58" id="b9Y-qD-eY8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0NG-V2-saI" secondAttribute="trailing" constant="70" id="qFo-Iw-RNG"/>
+                            <constraint firstItem="5km-xf-SUW" firstAttribute="baseline" secondItem="0NG-V2-saI" secondAttribute="firstBaseline" id="qSO-MX-QVN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JV2-Gi-G9X" secondAttribute="bottom" constant="39" id="xAB-D3-0Nf"/>
+                            <constraint firstItem="JV2-Gi-G9X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="69" id="yr1-dY-plX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="AfterImage" destination="SKn-Kp-IZd" id="3w5-ZC-N4t"/>
-                        <outlet property="BeforeImage" destination="d2x-bc-Pvv" id="Td8-42-aII"/>
+                        <outlet property="cameraView" destination="GIr-Ja-FBN" id="hps-HN-m9J"/>
+                        <outlet property="label" destination="ly1-Ht-sKB" id="PDv-aX-D4f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48.799999999999997" y="46.326836581709152"/>
+            <point key="canvasLocation" x="-18.705035971223023" y="-116.00719424460432"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="train" width="480" height="480"/>
-    </resources>
+    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
