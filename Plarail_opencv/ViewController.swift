@@ -10,8 +10,8 @@ import UIKit
 
 /* マスク処理 */
 extension UIImage {
-    func mask(image: UIImage?) -> UIImage {
-        if let maskRef = image?.cgImage,
+    func mask(image: UIImage) -> UIImage {
+        if let maskRef = image.cgImage,
             let ref = cgImage,
             let mask = CGImage(maskWidth: maskRef.width,
                                height: maskRef.height,
@@ -26,13 +26,25 @@ extension UIImage {
         }
         return self
     }
+    
+    func ResizeUIImage(width : CGFloat, height : CGFloat)-> UIImage!{
+        // 引数の画像の大きさのコンテキスト作成
+        UIGraphicsBeginImageContext(CGSize(width: width, height: height))
+        // コンテキストに画像を描く
+        self.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+        // コンテキストからUIImageを作成
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        // コンテキストを閉じる
+        UIGraphicsEndImageContext()
+        return newImage
+    }
 }
 
 
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
+    var SaveImage = UIImage()
     
     //@IBOutlet weak var BeforeImage: UIImageView!
     
@@ -90,7 +102,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func FixPicture(_ sender: Any) {
         
         var image:UIImage! = cameraView.image
-        //var image = UIImage(named: "okt")!
+       
         
         //この下の４行が勝手に画像の向きを変えるのを阻止してる
         UIGraphicsBeginImageContextWithOptions(image.size, false, 0.0)
@@ -101,20 +113,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if image != nil {
             
             
-            var beforeImage:UIImage? = image
+            var beforeImage:UIImage = image
             //let beforeImage:UIImage? = image
             
-            UIGraphicsBeginImageContextWithOptions(beforeImage!.size, false, 0.0)
-            beforeImage!.draw(in:(CGRect(x:0,y:0,width:beforeImage!.size.width,height:beforeImage!.size.height)))
+            UIGraphicsBeginImageContextWithOptions(beforeImage.size, false, 0.0)
+            beforeImage.draw(in:(CGRect(x:0,y:0,width:beforeImage.size.width,height:beforeImage.size.height)))
             beforeImage = UIGraphicsGetImageFromCurrentImageContext()!
             UIGraphicsEndImageContext()
             
-            let AfterImage:UIImage = OpenCVManager.grayScale(image);
+            let AfterImage:UIImage = OpenCVManager.grayScale(image)
             
-        
-
-            cameraView.image = beforeImage?.mask(image: AfterImage)
-            
+            cameraView.image = beforeImage.mask(image: AfterImage)
+            SaveImage = beforeImage.mask(image: AfterImage)
             
             
         }
@@ -130,9 +140,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let image:UIImage! = cameraView.image
         
+        SaveImage = SaveImage.ResizeUIImage(width: 500, height: 500)
+        
+        UIGraphicsBeginImageContext(SaveImage.size)
+        // バッファにImageを描画。
+        SaveImage.draw(at: CGPoint(x: 0.0, y: 0.0))
+        // バッファからUIImageを生成。
+        let nonLayerImage = UIGraphicsGetImageFromCurrentImageContext()
+        // バッファを解放。
+        UIGraphicsEndImageContext()
+        // PNGフォーマットのNSDataをUIImageから作成。
+        let data = nonLayerImage!.pngData()
+        let FinishImage = UIImage(data: data!)
+        //FinishImage = FinishImage!.ResizeUIImage(width: 500, height: 500)
+        
         if image != nil {
             UIImageWriteToSavedPhotosAlbum(
-                image,
+                FinishImage!,
                 self,
                 #selector(ViewController.image(_:didFinishSavingWithError:contextInfo:)),
                 nil)
