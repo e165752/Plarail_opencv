@@ -135,13 +135,23 @@ void UIImageToMat(const UIImage* image,
         //            cv::fillPoly(matCanny,pts=[contour[-1]],sclColor);
         
     }
- 
     
-    /* 白黒反転 */
-//    cv::Mat mask;
-//    bitwise_not(matThreshold, mask);
-//    UIImage * grayImg2 = MatToUIImage(mask);
+    // オープニングとクロージング
+    //    kernel = np.ones((25,25),np.uint8)
+    // 64F, channels=10, 3x3 の2次元配列（行列）
+    //    cv::Mat kernel1(5, 5, CV_8U);
+    //    cv::Mat kernel2(20, 20, CV_8U);
+    //    cv::Mat closed;
+    //    cv::Mat opened;
+    //    cv::morphologyEx(matThreshold, opened, cv::MORPH_OPEN, kernel1);
+    //    cv::morphologyEx(opened, closed, cv::MORPH_CLOSE, kernel2);
     
+    cv::Mat dilate_out;
+    cv::dilate(matCanny, dilate_out, cv::Mat(), cv::Point(-1,-1), 15);
+    
+    cv::Mat erode_out;
+    cv::erode(dilate_out, erode_out, cv::Mat(), cv::Point(-1,-1), 1);
+
 
     /* 元画像 */
 //    cv::Mat original = loadMatFromFile(@"train2.jpg");
@@ -151,7 +161,10 @@ void UIImageToMat(const UIImage* image,
 //    UIImage *original_img = [UIImage imageNamed:@"train.png"];
 //    UIImageToMat(original_img,original_mat);
     
-    UIImage * grayImg = MatToUIImage(matCanny);
+    cv::Mat mask;
+    bitwise_not(erode_out, mask);
+    
+    UIImage * grayImg = MatToUIImage(mask);
     
     return grayImg;
 }
