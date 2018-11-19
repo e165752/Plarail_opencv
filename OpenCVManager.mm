@@ -91,8 +91,11 @@ void UIImageToMat(const UIImage* image,
     
     //自動で閾値決定する場合
 //    cv::threshold(gray, matThreshold, 200, 255, cv::THRESH_BINARY|cv::THRESH_OTSU);
+//    cv::threshold(gray, matThreshold, 253, 255, cv::THRESH_BINARY);
     
-    cv::threshold(gray, matThreshold, 253, 255, cv::THRESH_BINARY);
+    cv::threshold(gray, matThreshold, 200, 255, CV_THRESH_TOZERO_INV );
+    cv::bitwise_not(gray, matThreshold); // 白黒の反転
+    cv::threshold(gray, matThreshold, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
  
     
     /* 白黒反転 */
