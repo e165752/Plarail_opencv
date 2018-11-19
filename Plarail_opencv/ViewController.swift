@@ -123,8 +123,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             let AfterImage:UIImage = OpenCVManager.grayScale(image)
             
-            cameraView.image = beforeImage.mask(image: AfterImage)
-            SaveImage = beforeImage.mask(image: AfterImage)
+//            cameraView.image = beforeImage.mask(image: AfterImage)
+//            SaveImage = beforeImage.mask(image: AfterImage)
             
             
         }
