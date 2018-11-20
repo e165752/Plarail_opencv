@@ -91,15 +91,67 @@ void UIImageToMat(const UIImage* image,
     
     //自動で閾値決定する場合
 //    cv::threshold(gray, matThreshold, 200, 255, cv::THRESH_BINARY|cv::THRESH_OTSU);
+//    cv::threshold(gray, matThreshold, 253, 255, cv::THRESH_BINARY);
     
-    cv::threshold(gray, matThreshold, 253, 255, cv::THRESH_BINARY);
- 
+    cv::threshold(gray, matThreshold, 200, 255, CV_THRESH_TOZERO_INV );
+    cv::bitwise_not(gray, matThreshold); // 白黒の反転
+    cv::threshold(gray, matThreshold, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
     
-    /* 白黒反転 */
-//    cv::Mat mask;
-//    bitwise_not(matThreshold, mask);
-//    UIImage * grayImg2 = MatToUIImage(mask);
     
+    // 輪郭検出
+    cv::Mat matCanny;
+    std::vector< std::vector < cv::Point > > vctContours;
+    std::vector< cv::Vec4i > hierarchy;
+    cv::Scalar sclColor;
+    
+    // Cannyアルゴリズム
+    Canny(matThreshold, matCanny, 100, 100, 3);
+    
+    
+    // 輪郭を取得する
+    cv::findContours(matCanny, vctContours, hierarchy, cv::RETR_LIST, cv::CHAIN_APPROX_SIMPLE);
+    
+    
+    int intContourCount = (int)vctContours.size() - 1;
+    
+    cv::Mat matDrawnContour = cv::Mat::zeros(matCanny.size(), CV_8UC3 );
+    int max_level = 0;
+    
+    for( int i = intContourCount; 0 <= i; i--){
+        
+        // ある程度の面積が有るものだけに絞る
+        double a = contourArea(vctContours[i],false);
+        
+        if(a > 100) { // 15000
+            //輪郭を直線近似する
+            std::vector<cv::Point> approx;
+            cv::approxPolyDP(cv::Mat(vctContours[i]), approx, 0.01 * cv::arcLength(vctContours[i], true), true);
+        }
+        
+        sclColor = cv::Scalar(255, 255, 255, 255);
+        
+        // 輪郭の番号を指定して、色を付ける
+        cv::drawContours(matDrawnContour, vctContours, i, sclColor, 4, CV_AA, hierarchy, max_level);
+        //            cv::fillPoly(matCanny,pts=[contour[-1]],sclColor);
+        
+    }
+    
+    // オープニングとクロージング
+    //    kernel = np.ones((25,25),np.uint8)
+    // 64F, channels=10, 3x3 の2次元配列（行列）
+    //    cv::Mat kernel1(5, 5, CV_8U);
+    //    cv::Mat kernel2(20, 20, CV_8U);
+    //    cv::Mat closed;
+    //    cv::Mat opened;
+    //    cv::morphologyEx(matThreshold, opened, cv::MORPH_OPEN, kernel1);
+    //    cv::morphologyEx(opened, closed, cv::MORPH_CLOSE, kernel2);
+    
+    cv::Mat dilate_out;
+    cv::dilate(matCanny, dilate_out, cv::Mat(), cv::Point(-1,-1), 15);
+    
+    cv::Mat erode_out;
+    cv::erode(dilate_out, erode_out, cv::Mat(), cv::Point(-1,-1), 1);
+
 
     /* 元画像 */
 //    cv::Mat original = loadMatFromFile(@"train2.jpg");
@@ -109,7 +161,10 @@ void UIImageToMat(const UIImage* image,
 //    UIImage *original_img = [UIImage imageNamed:@"train.png"];
 //    UIImageToMat(original_img,original_mat);
     
-    UIImage * grayImg = MatToUIImage(matThreshold);
+    cv::Mat mask;
+    bitwise_not(erode_out, mask);
+    
+    UIImage * grayImg = MatToUIImage(mask);
     
     return grayImg;
 }
