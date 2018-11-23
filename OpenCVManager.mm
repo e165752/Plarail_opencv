@@ -93,9 +93,9 @@ void UIImageToMat(const UIImage* image,
 //    cv::threshold(gray, matThreshold, 200, 255, cv::THRESH_BINARY|cv::THRESH_OTSU);
 //    cv::threshold(gray, matThreshold, 253, 255, cv::THRESH_BINARY);
     
-    cv::threshold(gray, matThreshold, 200, 255, CV_THRESH_TOZERO_INV );
-    cv::bitwise_not(gray, matThreshold); // 白黒の反転
-    cv::threshold(gray, matThreshold, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
+    cv::threshold(gray, matThreshold, 230, 255, CV_THRESH_TOZERO_INV );
+//    cv::bitwise_not(matThreshold, matThreshold); // 白黒の反転
+//    cv::threshold(gray, matThreshold, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
     
     
     // 輪郭検出
@@ -122,7 +122,7 @@ void UIImageToMat(const UIImage* image,
         // ある程度の面積が有るものだけに絞る
         double a = contourArea(vctContours[i],false);
         
-        if(a > 100) { // 15000
+        if(a > 200) { // 15000
             //輪郭を直線近似する
             std::vector<cv::Point> approx;
             cv::approxPolyDP(cv::Mat(vctContours[i]), approx, 0.01 * cv::arcLength(vctContours[i], true), true);
@@ -131,7 +131,7 @@ void UIImageToMat(const UIImage* image,
         sclColor = cv::Scalar(255, 255, 255, 255);
         
         // 輪郭の番号を指定して、色を付ける
-        cv::drawContours(matDrawnContour, vctContours, i, sclColor, 4, CV_AA, hierarchy, max_level);
+        cv::drawContours(matDrawnContour, vctContours, i, sclColor, CV_FILLED, CV_AA, hierarchy, max_level);
         //            cv::fillPoly(matCanny,pts=[contour[-1]],sclColor);
         
     }
@@ -150,8 +150,13 @@ void UIImageToMat(const UIImage* image,
     cv::dilate(matCanny, dilate_out, cv::Mat(), cv::Point(-1,-1), 15);
     
     cv::Mat erode_out;
-    cv::erode(dilate_out, erode_out, cv::Mat(), cv::Point(-1,-1), 1);
+    cv::erode(dilate_out, erode_out, cv::Mat(), cv::Point(-1,-1), 3);
 
+    cv::Mat negative;
+    bitwise_not(erode_out,negative);
+    
+    cv::floodFill(negative, cv::Point(0,0), cv::Scalar(255,255,255));
+    
 
     /* 元画像 */
 //    cv::Mat original = loadMatFromFile(@"train2.jpg");
@@ -161,10 +166,10 @@ void UIImageToMat(const UIImage* image,
 //    UIImage *original_img = [UIImage imageNamed:@"train.png"];
 //    UIImageToMat(original_img,original_mat);
     
-    cv::Mat mask;
-    bitwise_not(erode_out, mask);
+//    cv::Mat mask;
+//    bitwise_not(erode_out, mask);
     
-    UIImage * grayImg = MatToUIImage(mask);
+    UIImage * grayImg = MatToUIImage(negative);
     
     return grayImg;
 }
