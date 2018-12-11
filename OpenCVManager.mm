@@ -93,9 +93,9 @@ void UIImageToMat(const UIImage* image,
 //    cv::threshold(gray, matThreshold, 200, 255, cv::THRESH_BINARY|cv::THRESH_OTSU);
 //    cv::threshold(gray, matThreshold, 253, 255, cv::THRESH_BINARY);
     
-    cv::threshold(gray, matThreshold, 230, 255, CV_THRESH_TOZERO_INV );
+//    cv::threshold(gray, matThreshold, 230, 255, CV_THRESH_TOZERO_INV );
 //    cv::bitwise_not(matThreshold, matThreshold); // 白黒の反転
-//    cv::threshold(gray, matThreshold, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
+    cv::threshold(gray, matThreshold, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
     
     
     // 輪郭検出
@@ -147,17 +147,47 @@ void UIImageToMat(const UIImage* image,
     //    cv::morphologyEx(opened, closed, cv::MORPH_CLOSE, kernel2);
     
     cv::Mat dilate_out;
-    cv::dilate(matCanny, dilate_out, cv::Mat(), cv::Point(-1,-1), 15);
+    cv::dilate(matCanny, dilate_out, cv::Mat(), cv::Point(-1,-1), 5);
     
     cv::Mat erode_out;
     cv::erode(dilate_out, erode_out, cv::Mat(), cv::Point(-1,-1), 3);
 
     cv::Mat negative;
+    cv::Mat cvtcolor_out;
     bitwise_not(erode_out,negative);
     
-    cv::floodFill(negative, cv::Point(0,0), cv::Scalar(255,255,255));
+    cv::cvtColor(negative, cvtcolor_out, cv::COLOR_GRAY2BGR);
+    cv::floodFill(cvtcolor_out, cv::Point(0,0), cv::Scalar(100,255,255));
+   
+    for(int y = 0; y < cvtcolor_out.rows; ++y){
+        for(int x = 0; x < cvtcolor_out.cols; ++x){
+            // 画像のチャネル数分だけループ。白黒の場合は1回、カラーの場合は3回
+            int count = 0;
+            
+            for(int c = 0; c < cvtcolor_out.channels(); ++c){
+                if(cvtcolor_out.data[ y * cvtcolor_out.step + x * cvtcolor_out.elemSize() + c ] == 0){
+                    count += 1;
+                    if(count == 3){
+                        cvtcolor_out.data[ y * cvtcolor_out.step + x * cvtcolor_out.elemSize() + 0 ] = 255;
+                        cvtcolor_out.data[ y * cvtcolor_out.step + x * cvtcolor_out.elemSize() + 1 ] = 255;
+                        cvtcolor_out.data[ y * cvtcolor_out.step + x * cvtcolor_out.elemSize() + 2 ] = 255;
+                        count = 0;
+                    }
+                }
+                else{
+                        break;
+                    }
+            }
+        }
+    }
     
 
+cv::floodFill(cvtcolor_out, cv::Point(0,0), cv::Scalar(0,0,0));
+cv::cvtColor(cvtcolor_out, cvtcolor_out, cv::COLOR_BGR2GRAY);
+    
+cv::Mat mask;
+bitwise_not(cvtcolor_out,mask);
+    
     /* 元画像 */
 //    cv::Mat original = loadMatFromFile(@"train2.jpg");
 //    cv::Mat original_mat = loadMatFromFile(@"train2", @"jpg");
@@ -169,7 +199,7 @@ void UIImageToMat(const UIImage* image,
 //    cv::Mat mask;
 //    bitwise_not(erode_out, mask);
     
-    UIImage * grayImg = MatToUIImage(negative);
+    UIImage * grayImg = MatToUIImage(mask);
     
     return grayImg;
 }
