@@ -125,7 +125,42 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
 //            cameraView.image = AfterImage
             cameraView.image = beforeImage.mask(image: AfterImage)
-            SaveImage = beforeImage.mask(image: AfterImage)
+//            SaveImage = beforeImage.mask(image: AfterImage)
+            
+            
+            // アラート
+            let actionSheet = UIAlertController(title: "加工完了", message: "この画像を保存しますか？", preferredStyle: UIAlertController.Style.actionSheet)
+            
+            let defaultAction: UIAlertAction = UIAlertAction(title: "保存", style: UIAlertAction.Style.default, handler: {
+                
+                (action: UIAlertAction!) -> Void in
+                self.SaveImage = beforeImage.mask(image: AfterImage)
+                self.SavePicture()
+            })
+
+            
+            let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.destructive, handler: {
+                (action: UIAlertAction!) -> Void in
+                print("キャンセル")
+                
+            })
+            
+            
+            actionSheet.addAction(defaultAction)
+            actionSheet.addAction(cancelAction)
+
+            
+            // iPadでは必須！
+            actionSheet.popoverPresentationController?.sourceView = self.view
+            
+            
+            let screenSize = UIScreen.main.bounds
+            // ここで表示位置を調整
+            // xは画面中央、yは画面下部になる様に指定
+            actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width/2, y: screenSize.size.height, width: 0, height: 0)
+            
+            self.present(actionSheet, animated: true, completion: nil)
+//            ここまで
             
             
         }
@@ -137,7 +172,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     
-    @IBAction func SavePicture(_ sender: Any) {
+//    @IBAction func SavePicture(_ sender: Any) {
+    func SavePicture() {
+    
         
         let image:UIImage! = cameraView.image
         
@@ -172,6 +209,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @objc func image(_ image: UIImage,
                      didFinishSavingWithError error: NSError!,
                      contextInfo: UnsafeMutableRawPointer) {
+        
+    
         
         if error != nil {
             print(error.code)
@@ -241,8 +280,3 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
 
 }
-
-
-
-
-
