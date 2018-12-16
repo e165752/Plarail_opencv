@@ -38,6 +38,25 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return newImage
     }
+    
+    func cropping(to: CGRect) -> UIImage? {
+        var opaque = false
+        if let cgImage = cgImage {
+            switch cgImage.alphaInfo {
+            case .noneSkipLast, .noneSkipFirst:
+                opaque = true
+            default:
+                break
+            }
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(to.size, opaque, scale)
+        draw(at: CGPoint(x: -to.origin.x, y: -to.origin.y))
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return result
+    }
+    
 }
 
 
@@ -45,9 +64,9 @@ extension UIImage {
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var SaveImage = UIImage()
-    
-    //@IBOutlet weak var BeforeImage: UIImageView!
-    
+    var nextImage2 = UIImage()
+    //画面サイズ
+    let mainBoundSize: CGSize = UIScreen.main.bounds.size
     
     @IBOutlet weak var label: UILabel!
     
@@ -142,6 +161,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.destructive, handler: {
                 (action: UIAlertAction!) -> Void in
                 print("キャンセル")
+                self.cameraView.image = image
                 
             })
             
@@ -245,21 +265,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    @IBAction func returnButton(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         label.text = "push Start"
-        /*
-        BeforeImage.image = UIImage(named: "train")
-
-        // Do any additional setup after loading the view, typically from a nib.
-        let image = BeforeImage.image;
-        let gray = OpenCVManager.grayScale(image)
-        AfterImage.image = gray;
         
-        AfterImage.image = UIImage(named: "train")?.mask(image: AfterImage.image)
-        */
+        cameraView.frame = CGRect(x: mainBoundSize.width/10,y: mainBoundSize.height/6,width: (mainBoundSize.width/5)*4,height: (mainBoundSize.height/5)*3)
+        //画像のリサイズ
+        nextImage2 = nextImage2.ResizeUIImage(width: 1668, height: 2224)
+        //画像の切り取り
+        nextImage2 = nextImage2.cropping(to: CGRect(x: 166,y: 600,width: 1328,height: 1034))!
+        cameraView.image = nextImage2
     }
     
     override func didReceiveMemoryWarning() {
@@ -269,12 +292,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var cameraView : UIImageView!
     
-    
-    
     @IBAction func startCamera(_ sender : AnyObject) {
-        
-        
-        
         
     }
     
