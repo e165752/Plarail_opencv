@@ -16,11 +16,14 @@ class CameraViewController: UIViewController,AVCapturePhotoCaptureDelegate {
     var previewLayer: AVCaptureVideoPreviewLayer?
     let mainBoundSize: CGSize = UIScreen.main.bounds.size
     let mainNativeBoundSize: CGSize = UIScreen.main.nativeBounds.size
+    let camera_image:UIImage = UIImage(named: "button.png")!
     
     @IBOutlet weak var CameraView: UIImageView!
     @IBOutlet weak var CameraButton: UIButton!
     @IBOutlet weak var textBorder: UITextField!
     @IBOutlet weak var CameraLabel: UILabel!
+    @IBOutlet weak var text2: UITextField!
+    
     
     //画面遷移する際に画像を保存する変数
     var nextImage1 = UIImage()
@@ -35,8 +38,15 @@ class CameraViewController: UIViewController,AVCapturePhotoCaptureDelegate {
         //textBorder.frame = CGRect(x: 57,y: 196,width: 721,height: 721)
         textBorder.frame = CGRect(x: mainBoundSize.width/10,y: mainBoundSize.height/5,width: (mainBoundSize.width/5)*4,height: (mainBoundSize.height/5)*3)
         textBorder.isEnabled = false;
+        //進行方向を教えるテキスト
+        text2.frame = CGRect(x: (mainBoundSize.width/2)-50, y:150, width: 100, height: 60)
+        text2.text = "前　 ⬅︎ "
+        text2.textColor = UIColor.blue
+        text2.font = UIFont.systemFont(ofSize: 36)
+        text2.textAlignment = NSTextAlignment.center
+        
         //ラベルのスタイル設定
-        CameraLabel.frame = CGRect(x: mainBoundSize.width/4, y: 100, width: 450, height: 80)
+        CameraLabel.frame = CGRect(x: mainBoundSize.width/4, y: 50, width: 450, height: 80)
         CameraLabel.text = "枠の中に絵を入れてください"
         CameraLabel.textColor = UIColor.black
         CameraLabel.font = UIFont.systemFont(ofSize: 36)
@@ -45,15 +55,18 @@ class CameraViewController: UIViewController,AVCapturePhotoCaptureDelegate {
         CameraLabel.layer.cornerRadius = 3
         CameraLabel.clipsToBounds = true
         
-        
         //カメラボタンのスタイル設定
+        /*
         CameraButton.layer.borderColor = UIColor.white.cgColor
         CameraButton.layer.borderWidth = 5
         CameraButton.clipsToBounds = true
+        */
+        CameraButton.setImage(camera_image, for: .normal)
         CameraButton.frame = CGRect(x: (mainBoundSize.width/2)-40, y: mainBoundSize.height-85, width: 80, height: 80)
-        CameraButton.backgroundColor = UIColor.init(
-            red:1, green: 0, blue: 0, alpha: 1)
-        CameraButton.layer.cornerRadius = min(CameraButton.frame.width, CameraButton.frame.height) / 2
+        
+        //CameraButton.backgroundColor = UIColor.init(
+            //red:1, green: 1, blue: 1, alpha: 1)
+        //CameraButton.layer.cornerRadius = min(CameraButton.frame.width, CameraButton.frame.height) / 2
         self.view.sendSubviewToBack(CameraView)
         
         CameraView.frame = CGRect(x: 0, y: 0, width: mainBoundSize.width, height: mainBoundSize.height)

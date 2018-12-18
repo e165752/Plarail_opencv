@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Kaiso-Next-B.otf">
+            <string>Kaiso-Next-B</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Camera View Controller-->
         <scene sceneID="FAP-pL-ZM8">
@@ -28,20 +33,30 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39J-hr-uXB">
-                                <rect key="frame" x="438" y="117" width="21" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="枠の中に絵を入れてください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39J-hr-uXB">
+                                <rect key="frame" x="438" y="117" width="221" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Kaiso-Next-B" family="Kaiso" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SdF-Xs-nEY">
-                                <rect key="frame" x="396" y="1032" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SdF-Xs-nEY">
+                                <rect key="frame" x="347" y="966" width="130" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="button">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="CameraButton:" destination="eSq-sW-j8G" eventType="touchUpInside" id="0IO-Te-IdC"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="前　⬅︎" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0QX-oA-bcT">
+                                <rect key="frame" x="400" y="146" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Kaiso-Next-B" family="Kaiso" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="yCZ-2q-8jQ"/>
@@ -50,6 +65,7 @@
                         <outlet property="CameraButton" destination="SdF-Xs-nEY" id="nAY-lY-gKi"/>
                         <outlet property="CameraLabel" destination="39J-hr-uXB" id="Ey1-bg-5vx"/>
                         <outlet property="CameraView" destination="nsX-w5-mPD" id="ZBz-yU-W0i"/>
+                        <outlet property="text2" destination="0QX-oA-bcT" id="Udx-sV-lnZ"/>
                         <outlet property="textBorder" destination="Ccm-fM-RXb" id="igH-MA-8OZ"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="next" id="S5f-Iq-BMr"/>
                     </connections>
@@ -66,80 +82,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ly1-Ht-sKB">
-                                <rect key="frame" x="331" y="985" width="142" height="47"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="akq-Ap-egL"/>
-                                    <constraint firstAttribute="width" constant="142" id="cra-Fg-2Rv"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NG-V2-saI">
-                                <rect key="frame" x="660" y="1019" width="64" height="64"/>
-                                <state key="normal" image="icon_album"/>
-                                <connections>
-                                    <action selector="ShowAlbum:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EEM-5h-N04"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JV2-Gi-G9X">
-                                <rect key="frame" x="104" y="1019" width="64" height="64"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                <state key="normal" image="icon_camera"/>
-                                <connections>
-                                    <action selector="StartCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aq0-Kv-zFm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaG-bx-7rN">
-                                <rect key="frame" x="285" y="1019" width="64" height="64"/>
-                                <state key="normal" image="icon_scissors"/>
-                                <connections>
-                                    <action selector="FixPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AT4-hy-sgQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5km-xf-SUW">
-                                <rect key="frame" x="469" y="1019" width="64" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="BeN-4Z-d18"/>
-                                </constraints>
-                                <state key="normal" image="icon_download"/>
-                                <connections>
-                                    <action selector="SavePicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LAG-H9-CoH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXO-lG-l3V">
-                                <rect key="frame" x="36" y="81" width="49" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="戻る"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXO-lG-l3V">
+                                <rect key="frame" x="46" y="77" width="30" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <state key="normal" title="×">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="returnButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HCF-LY-9pV"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GIr-Ja-FBN">
-                                <rect key="frame" x="71" y="194" width="692" height="728"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GIr-Ja-FBN">
+                                <rect key="frame" x="86" y="192" width="662" height="728"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="728" id="ddU-qB-Gwf"/>
+                                </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaG-bx-7rN">
+                                <rect key="frame" x="374" y="974" width="86" height="68"/>
+                                <fontDescription key="fontDescription" name="Kaiso-Next-B" family="Kaiso" pointSize="41"/>
+                                <state key="normal" title="決定">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="FixPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AT4-hy-sgQ"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="IwQ-pP-phi">
+                                <rect key="frame" x="407" y="546" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5km-xf-SUW" secondAttribute="bottom" constant="16" id="0MR-4X-pK3"/>
-                            <constraint firstItem="JV2-Gi-G9X" firstAttribute="top" secondItem="MaG-bx-7rN" secondAttribute="top" id="5hv-Eo-OuM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0NG-V2-saI" secondAttribute="trailing" constant="110" id="8hS-dx-lhE"/>
-                            <constraint firstItem="5km-xf-SUW" firstAttribute="top" secondItem="ly1-Ht-sKB" secondAttribute="bottom" id="C1F-Mi-EwV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JV2-Gi-G9X" secondAttribute="bottom" constant="29" id="EG7-Jl-gqZ"/>
-                            <constraint firstItem="MaG-bx-7rN" firstAttribute="top" secondItem="0NG-V2-saI" secondAttribute="top" id="LbW-fz-wde"/>
-                            <constraint firstItem="JV2-Gi-G9X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="104" id="LiR-7q-Qah"/>
-                            <constraint firstItem="0NG-V2-saI" firstAttribute="leading" secondItem="5km-xf-SUW" secondAttribute="trailing" constant="98" id="Lzp-Cw-tNw"/>
-                            <constraint firstItem="ly1-Ht-sKB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="331" id="VUA-Ob-6SU"/>
-                            <constraint firstItem="MaG-bx-7rN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="285" id="d5l-sH-NOn"/>
+                            <constraint firstItem="cXO-lG-l3V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="8qY-fE-9A3"/>
+                            <constraint firstItem="IwQ-pP-phi" firstAttribute="centerX" secondItem="GIr-Ja-FBN" secondAttribute="centerX" id="9xC-ti-zlD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MaG-bx-7rN" secondAttribute="bottom" constant="70" id="B50-3D-aHX"/>
+                            <constraint firstItem="MaG-bx-7rN" firstAttribute="top" secondItem="GIr-Ja-FBN" secondAttribute="bottom" constant="54" id="BS3-VW-EtF"/>
+                            <constraint firstItem="IwQ-pP-phi" firstAttribute="centerY" secondItem="GIr-Ja-FBN" secondAttribute="centerY" id="L7A-ty-iZm"/>
+                            <constraint firstItem="IwQ-pP-phi" firstAttribute="centerX" secondItem="MaG-bx-7rN" secondAttribute="centerX" id="T8P-9H-zko"/>
+                            <constraint firstItem="MaG-bx-7rN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="374" id="d5l-sH-NOn"/>
+                            <constraint firstItem="cXO-lG-l3V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="57" id="qmV-BS-TIf"/>
+                            <constraint firstItem="GIr-Ja-FBN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="86" id="sNx-oy-b6K"/>
+                            <constraint firstItem="IwQ-pP-phi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uup-B9-Nlp"/>
+                            <constraint firstItem="IwQ-pP-phi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yGr-D4-Zrv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="cameraView" destination="GIr-Ja-FBN" id="hps-HN-m9J"/>
-                        <outlet property="label" destination="ly1-Ht-sKB" id="PDv-aX-D4f"/>
+                        <outlet property="indicator" destination="IwQ-pP-phi" id="Oh1-1R-rlL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -148,10 +139,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_album" width="64" height="64"/>
-        <image name="icon_camera" width="64" height="64"/>
-        <image name="icon_download" width="64" height="64"/>
-        <image name="icon_scissors" width="64" height="64"/>
+        <image name="button" width="736" height="734"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
