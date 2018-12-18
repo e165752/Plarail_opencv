@@ -57,6 +57,22 @@ extension UIImage {
         return result
     }
     
+    func flipImage() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        let bitmap = UIGraphicsGetCurrentContext()!
+        
+        bitmap.translateBy(x: size.width / 2, y: size.height / 2)
+        bitmap.scaleBy(x: -1.0, y: -1.0)
+        
+        bitmap.translateBy(x: -size.width / 2, y: -size.height / 2)
+        bitmap.draw(self.cgImage!, in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+    
 }
 
 
@@ -68,30 +84,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //画面サイズ
     let mainBoundSize: CGSize = UIScreen.main.bounds.size
     
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     @IBOutlet weak var StartCamera: UIButton!
-    
-    @IBAction func StartCamera(_ sender: Any) {
-        
-        let sourceType:UIImagePickerController.SourceType =
-            UIImagePickerController.SourceType.camera
-        // カメラが利用可能かチェック
-        if UIImagePickerController.isSourceTypeAvailable(
-            UIImagePickerController.SourceType.camera){
-            // インスタンスの作成
-            let cameraPicker = UIImagePickerController()
-            cameraPicker.sourceType = sourceType
-            cameraPicker.delegate = self
-            self.present(cameraPicker, animated: true, completion: nil)
-            
-        }
-        else{
-            label.text = "error"
-            
-        }
-        
-    }
     
     //　撮影が完了時した時に呼ばれる
     func imagePickerController(_ imagePicker: UIImagePickerController,
@@ -107,21 +102,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //閉じる処理
         imagePicker.dismiss(animated: true, completion: nil)
-        label.text = "Tap the [Save] to save a picture"
+        
         
     }
     
     // 撮影がキャンセルされた時に呼ばれる
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
-        label.text = "Canceled"
 
     }
     
     @IBAction func FixPicture(_ sender: Any) {
         
+        startIndicator()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+         self.fix()
+        }
+    }
+    
+    @objc func fix() {
+        
         var image:UIImage! = cameraView.image
-       
+        
         
         //この下の４行が勝手に画像の向きを変えるのを阻止してる
         UIGraphicsBeginImageContextWithOptions(image.size, false, 0.0)
@@ -142,11 +144,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             let AfterImage:UIImage = OpenCVManager.grayScale(image)
             
-//            cameraView.image = AfterImage
+            //            cameraView.image = AfterImage
             cameraView.image = beforeImage.mask(image: AfterImage)
-//            SaveImage = beforeImage.mask(image: AfterImage)
+            //            SaveImage = beforeImage.mask(image: AfterImage)
             
-            
+            stopIndicator()
             // アラート
             let actionSheet = UIAlertController(title: "加工完了", message: "この画像を保存しますか？", preferredStyle: UIAlertController.Style.actionSheet)
             
@@ -156,19 +158,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.SaveImage = beforeImage.mask(image: AfterImage)
                 self.SavePicture()
             })
-
+            
             
             let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.destructive, handler: {
                 (action: UIAlertAction!) -> Void in
                 print("キャンセル")
-                self.cameraView.image = image
+                self.dismiss(animated: true, completion: nil)
                 
             })
             
             
             actionSheet.addAction(defaultAction)
             actionSheet.addAction(cancelAction)
-
+            
             
             // iPadでは必須！
             actionSheet.popoverPresentationController?.sourceView = self.view
@@ -180,21 +182,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width/2, y: screenSize.size.height, width: 0, height: 0)
             
             self.present(actionSheet, animated: true, completion: nil)
-//            ここまで
+            //            ここまで
             
             
         }
-        else {
-            label.text = "Fix Failed !"
-        }
+        
     }
     
-    
-    
-    
-//    @IBAction func SavePicture(_ sender: Any) {
     func SavePicture() {
-    
         
         let image:UIImage! = cameraView.image
         
@@ -219,9 +214,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 #selector(ViewController.image(_:didFinishSavingWithError:contextInfo:)),
                 nil)
         }
-        else{
-            label.text = "image Failed !"
-        }
         
     }
     
@@ -229,16 +221,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @objc func image(_ image: UIImage,
                      didFinishSavingWithError error: NSError!,
                      contextInfo: UnsafeMutableRawPointer) {
-        
     
-        
-        if error != nil {
-            print(error.code)
-            label.text = "Save Failed !"
-        }
-        else{
-            label.text = "Save Succeeded"
-        }
     }
     
     
@@ -256,11 +239,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             cameraPicker.delegate = self
             self.present(cameraPicker, animated: true, completion: nil)
             
-            label.text = "Tap the [Start] to save a picture"
-        }
-        else{
-            label.text = "error"
-            
         }
         
     }
@@ -275,20 +253,57 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        label.text = "push Start"
-        
         cameraView.frame = CGRect(x: mainBoundSize.width/10,y: mainBoundSize.height/6,width: (mainBoundSize.width/5)*4,height: (mainBoundSize.height/5)*3)
         //画像のリサイズ
         nextImage2 = nextImage2.ResizeUIImage(width: 1668, height: 2224)
         //画像の切り取り
         nextImage2 = nextImage2.cropping(to: CGRect(x: 166,y: 600,width: 1328,height: 1034))!
         cameraView.image = nextImage2
+        
+        // indicatorのframeを作成
+        indicator.frame = CGRect(x:0, y:0, width:200, height:200)
+        
+        // frameを角丸にする場合は数値調整
+        indicator.layer.cornerRadius = 8
+        
+        // indicatorのstyle（color）を設定
+        indicator.style = UIActivityIndicatorView.Style.whiteLarge
+        
+        // indicatorのbackgroundColorを設定
+        indicator.backgroundColor = UIColor.black
+        
+        // indicatorの配置を設定
+        indicator.layer.position = CGPoint(x: self.view.bounds.width/2, y: mainBoundSize.height/2)
+        
+        // indicatorのアニメーションが終了したら自動的にindicatorを非表示にするか否かの設定
+        indicator.hidesWhenStopped = true
+        
+        // viewにindicatorを追加
+        self.view.addSubview(indicator)
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @objc func startIndicator() {
+        
+        // indicatorのアニメーションを開始
+        indicator.startAnimating()
+        
+        // viewにindicatorを追加
+        self.view.addSubview(indicator)
+        //self.view.bringSubviewToFront(indicator)
+        
+    }
+    
+    @objc func stopIndicator() {
+        // indicatorのアニメーションを終了
+        indicator.stopAnimating()
+    }
+    
     
     @IBOutlet weak var cameraView : UIImageView!
     

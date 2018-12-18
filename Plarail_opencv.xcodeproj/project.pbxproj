@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DE6FFC321C6418700259776 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DE6FFC221C6418700259776 /* opencv2.framework */; };
+		7DE6FFC521C641D300259776 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE6FFC421C641D300259776 /* CameraViewController.swift */; };
+		7DE6FFC921C8BFFB00259776 /* Kaiso-Next-B.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7DE6FFC821C8BFFA00259776 /* Kaiso-Next-B.otf */; };
 		DE8451182179C619000E72C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8451172179C619000E72C8 /* AppDelegate.swift */; };
 		DE84511A2179C619000E72C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8451192179C619000E72C8 /* ViewController.swift */; };
 		DE84511D2179C619000E72C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE84511B2179C619000E72C8 /* Main.storyboard */; };
@@ -15,7 +18,6 @@
 		DE84512D2179C61A000E72C8 /* Plarail_opencvTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84512C2179C61A000E72C8 /* Plarail_opencvTests.swift */; };
 		DE8451382179C61B000E72C8 /* Plarail_opencvUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8451372179C61B000E72C8 /* Plarail_opencvUITests.swift */; };
 		DE8451492179CDD5000E72C8 /* OpenCVManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = DE8451482179CDD5000E72C8 /* OpenCVManager.mm */; };
-		DEBF180621884D90003A9730 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBF180521884D90003A9730 /* opencv2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7DE6FFC221C6418700259776 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		7DE6FFC421C641D300259776 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		7DE6FFC821C8BFFA00259776 /* Kaiso-Next-B.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kaiso-Next-B.otf"; sourceTree = "<group>"; };
 		DE8451142179C619000E72C8 /* Plarail_opencv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plarail_opencv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE8451172179C619000E72C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE8451192179C619000E72C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +57,6 @@
 		DE8451472179CDD4000E72C8 /* Plarail_opencv-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Plarail_opencv-Bridging-Header.h"; sourceTree = "<group>"; };
 		DE8451482179CDD5000E72C8 /* OpenCVManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVManager.mm; sourceTree = "<group>"; };
 		DE84514A2179CECD000E72C8 /* OpenCVManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVManager.h; sourceTree = "<group>"; };
-		DEBF180521884D90003A9730 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEBF180621884D90003A9730 /* opencv2.framework in Frameworks */,
+				7DE6FFC321C6418700259776 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,9 +111,11 @@
 		DE8451162179C619000E72C8 /* Plarail_opencv */ = {
 			isa = PBXGroup;
 			children = (
-				DEBF180521884D90003A9730 /* opencv2.framework */,
+				7DE6FFC821C8BFFA00259776 /* Kaiso-Next-B.otf */,
+				7DE6FFC221C6418700259776 /* opencv2.framework */,
 				DE8451172179C619000E72C8 /* AppDelegate.swift */,
 				DE8451192179C619000E72C8 /* ViewController.swift */,
+				7DE6FFC421C641D300259776 /* CameraViewController.swift */,
 				DE84511B2179C619000E72C8 /* Main.storyboard */,
 				DE84511E2179C61A000E72C8 /* Assets.xcassets */,
 				DE8451202179C61A000E72C8 /* LaunchScreen.storyboard */,
@@ -242,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE8451222179C61A000E72C8 /* LaunchScreen.storyboard in Resources */,
+				7DE6FFC921C8BFFB00259776 /* Kaiso-Next-B.otf in Resources */,
 				DE84511F2179C61A000E72C8 /* Assets.xcassets in Resources */,
 				DE84511D2179C619000E72C8 /* Main.storyboard in Resources */,
 			);
@@ -269,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE84511A2179C619000E72C8 /* ViewController.swift in Sources */,
+				7DE6FFC521C641D300259776 /* CameraViewController.swift in Sources */,
 				DE8451182179C619000E72C8 /* AppDelegate.swift in Sources */,
 				DE8451492179CDD5000E72C8 /* OpenCVManager.mm in Sources */,
 			);
@@ -447,7 +455,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9UJ28MWVGQ;
+				DEVELOPMENT_TEAM = MG64KB9GT3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -459,7 +467,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ie-ryukyu.Plarail-opencv";
+				PRODUCT_BUNDLE_IDENTIFIER = "ie-ryukyu.shrnk-4014";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Plarail_opencv-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -474,7 +482,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9UJ28MWVGQ;
+				DEVELOPMENT_TEAM = MG64KB9GT3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -486,7 +494,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ie-ryukyu.Plarail-opencv";
+				PRODUCT_BUNDLE_IDENTIFIER = "ie-ryukyu.shrnk-4014";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Plarail_opencv-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
