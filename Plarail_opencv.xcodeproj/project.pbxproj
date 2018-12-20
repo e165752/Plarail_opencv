@@ -39,7 +39,7 @@
 
 /* Begin PBXFileReference section */
 		7DE6FFC221C6418700259776 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
-		7DE6FFC421C641D300259776 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		7DE6FFC421C641D300259776 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		7DE6FFC821C8BFFA00259776 /* Kaiso-Next-B.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kaiso-Next-B.otf"; sourceTree = "<group>"; };
 		DE8451142179C619000E72C8 /* Plarail_opencv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plarail_opencv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE8451172179C619000E72C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
