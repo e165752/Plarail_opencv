@@ -39,17 +39,18 @@ class CameraViewController: UIViewController,AVCapturePhotoCaptureDelegate {
         textBorder.frame = CGRect(x: mainBoundSize.width/10,y: mainBoundSize.height/5,width: (mainBoundSize.width/5)*4,height: (mainBoundSize.height/5)*3)
         textBorder.isEnabled = false;
         //進行方向を教えるテキスト
-        text2.frame = CGRect(x: (mainBoundSize.width/2)-50, y:150, width: 100, height: 60)
-        text2.text = "前　 ⬅︎ "
+        text2.frame = CGRect(x: (mainBoundSize.width/2)-75, y:150, width: 150, height: 60)
+        text2.text = "⬅︎   前"
         text2.textColor = UIColor.blue
-        text2.font = UIFont.systemFont(ofSize: 36)
+        text2.font = UIFont(name:"Kaiso", size: 42.0)
         text2.textAlignment = NSTextAlignment.center
+        text2.isEnabled = false;
         
         //ラベルのスタイル設定
-        CameraLabel.frame = CGRect(x: mainBoundSize.width/4, y: 50, width: 450, height: 80)
+        CameraLabel.frame = CGRect(x: (mainBoundSize.width/4)-35, y: 50, width: 500, height: 80)
         CameraLabel.text = "枠の中に絵を入れてください"
         CameraLabel.textColor = UIColor.black
-        CameraLabel.font = UIFont.systemFont(ofSize: 36)
+        CameraLabel.font = UIFont(name:"Kaiso", size: 36.0)
         CameraLabel.backgroundColor = UIColor.white
         CameraLabel.textAlignment = NSTextAlignment.center
         CameraLabel.layer.cornerRadius = 3

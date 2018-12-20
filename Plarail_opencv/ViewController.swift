@@ -86,7 +86,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-    @IBOutlet weak var StartCamera: UIButton!
+    @IBOutlet weak var selectButton: UIButton!
+    
+    @IBOutlet weak var returnButton: UIButton!
     
     //　撮影が完了時した時に呼ばれる
     func imagePickerController(_ imagePicker: UIImagePickerController,
@@ -259,6 +261,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //画像の切り取り
         nextImage2 = nextImage2.cropping(to: CGRect(x: 166,y: 600,width: 1328,height: 1034))!
         cameraView.image = nextImage2
+        
+        selectButton.layer.borderWidth = 1.0                                              // 枠線の幅
+        selectButton.layer.borderColor = UIColor.blue.cgColor                            // 枠線の色
+        selectButton.layer.cornerRadius = 5.0
+        let rgba = UIColor(red: 255/255, green: 160/255, blue: 0/255, alpha: 0.2
+        ) // ボタン背景色設定
+        selectButton.backgroundColor = rgba
+        
+        returnButton.layer.borderWidth = 1.0                                              // 枠線の幅
+        returnButton.layer.borderColor = UIColor.blue.cgColor                            // 枠線の色
+        returnButton.layer.cornerRadius = 5.0
+    
+        returnButton.backgroundColor = rgba
+        
         
         // indicatorのframeを作成
         indicator.frame = CGRect(x:0, y:0, width:200, height:200)
