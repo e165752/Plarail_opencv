@@ -115,6 +115,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func FixPicture(_ sender: Any) {
+        self.selectButton.isEnabled = false // 無効
+        if selectButton.isEnabled == false {
+            selectButton.backgroundColor = UIColor(red:192/255, green:192/255, blue:192/255, alpha:1.0)
+            print("無効化")
+        }
+        
+        
         
         startIndicator()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -254,6 +261,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.selectButton.isEnabled = true  // 有効
+        
+        
         
         cameraView.frame = CGRect(x: mainBoundSize.width/10,y: mainBoundSize.height/6,width: (mainBoundSize.width/5)*4,height: (mainBoundSize.height/5)*3)
         //画像のリサイズ
