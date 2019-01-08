@@ -166,6 +166,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 (action: UIAlertAction!) -> Void in
                 self.SaveImage = beforeImage.mask(image: AfterImage)
                 self.SavePicture()
+                
+                //アプリ間の遷移
+                guard let url = URL(string: "oekaki://") else { return }
+                UIApplication.shared.openURL(url)
             })
             
             
